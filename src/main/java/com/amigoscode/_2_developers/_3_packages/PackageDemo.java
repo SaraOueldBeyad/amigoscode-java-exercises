@@ -1,5 +1,7 @@
 package com.amigoscode._2_developers._3_packages;
 
+import java.util.ArrayList;
+
 // TODO: 1 - Import java.util.List and java.util.ArrayList, then create a List<String>
 //  in the useListFromUtil() method below.
 
@@ -21,6 +23,16 @@ public class PackageDemo {
     public static void useListFromUtil() {
         // TODO: 1 (continued) - Create a List<String> using ArrayList, add three fruits,
         //  and print the list. Make sure you have the import statements at the top.
+
+        ArrayList<String> fruits = new ArrayList<>();
+
+        fruits.add("Apple");
+        fruits.add("Orange");
+        fruits.add("banana");
+
+        for(String fruit : fruits){
+            System.out.println(fruit);
+        }
 
     }
 
