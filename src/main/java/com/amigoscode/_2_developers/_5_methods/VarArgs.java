@@ -13,12 +13,32 @@ public class VarArgs {
     //  If no arguments are provided, return 0.
     //  Hint: use a for-each loop to iterate over 'numbers'.
 
+    public static int sum(int... numbers){
+        int sum = 0;
+        for (int number : numbers){
+            sum += number;
+        }
+        return sum;
+    }
+
 
     // TODO: 2 - Create a method: String concatenate(String... strings)
     //  Joins all strings with a single space between them.
     //  Example: concatenate("Hello", "World") returns "Hello World"
     //  If no arguments, return an empty string "".
     //  Hint: use StringBuilder or String.join(" ", strings).
+
+    public static String concatenate(String... strings){
+        StringBuilder str = new StringBuilder();
+        if (strings.equals(null)){
+            return "";
+        } else {
+            for (String s : strings){
+                str.append(s + " ");
+            }
+            return str.toString();
+        }
+    }
 
 
     // TODO: 3 - Create a method: int findMax(int... numbers)
@@ -40,14 +60,14 @@ public class VarArgs {
 
         System.out.println("=== Sum ===");
         // TODO: 5 - Demonstrate calling sum() with different numbers of arguments:
-        //  - sum()           -> 0  (zero args)
-        //  - sum(5)          -> 5  (one arg)
-        //  - sum(1, 2, 3, 4) -> 10 (many args)
+        System.out.println("0 = " + sum());           //-> 0  (zero args)
+        System.out.println("5 = " + sum(5));          //-> 5  (one arg)
+        System.out.println("1 + 2 + 3 + 4 = " + sum(1, 2, 3, 4)); //-> 10 (many args)
         //  Print each result.
 
 
         System.out.println("\n=== Concatenate ===");
-        // Print: concatenate("Java", "is", "awesome")
+        System.out.println(concatenate("Java", "is", "awesome"));
 
         System.out.println("\n=== Find Max ===");
         // Print: findMax(3, 7, 2, 9, 1)
