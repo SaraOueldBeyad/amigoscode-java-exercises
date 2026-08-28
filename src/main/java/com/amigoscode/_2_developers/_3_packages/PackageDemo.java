@@ -1,9 +1,12 @@
 package com.amigoscode._2_developers._3_packages;
 
-import java.util.ArrayList;
-
 // TODO: 1 - Import java.util.List and java.util.ArrayList, then create a List<String>
 //  in the useListFromUtil() method below.
+import java.util.ArrayList;
+
+import java.time.LocalDate;
+import static java.lang.Math.PI;
+import com.amigoscode._2_developers._2_conditionals.IfStatements;
 
 
 // TODO: 2 - Import java.time.LocalDate, then use it in the printToday() method below.
@@ -25,12 +28,11 @@ public class PackageDemo {
         //  and print the list. Make sure you have the import statements at the top.
 
         ArrayList<String> fruits = new ArrayList<>();
-
         fruits.add("Apple");
         fruits.add("Orange");
-        fruits.add("banana");
+        fruits.add("Banana");
 
-        for(String fruit : fruits){
+        for (String fruit : fruits){
             System.out.println(fruit);
         }
 
@@ -43,6 +45,9 @@ public class PackageDemo {
         // TODO: 2 (continued) - Use LocalDate.now() to get today's date and print it.
         //  Make sure you have the import statement at the top.
 
+        LocalDate localDate = LocalDate.now();
+        System.out.println(localDate);
+
     }
 
     /**
@@ -53,6 +58,15 @@ public class PackageDemo {
         // TODO: 3 - Create a java.util.HashMap<String, Integer> using the fully qualified
         //  class name (no import). Put two entries (e.g., "Alice"->90, "Bob"->85) and print it.
         //  Example: java.util.HashMap<String, Integer> map = new java.util.HashMap<>();
+
+        java.util.HashMap<String, Integer> map = new java.util.HashMap<>();
+
+        map.put("Alice", 90);
+        map.put("Bob", 85);
+
+        for (String name : map.keySet()){
+            System.out.println(name + " : " + map.get(name));
+        }
 
     }
 
@@ -69,7 +83,7 @@ public class PackageDemo {
     public static double circleArea(double radius) {
         // TODO: 4 (continued) - Return PI * radius * radius using the statically imported PI.
         //  You need to add: import static java.lang.Math.PI; at the top of this file.
-        return 0;
+        return PI * radius * radius;
     }
 
     /**
@@ -81,6 +95,10 @@ public class PackageDemo {
         //  in this project (e.g., com.amigoscode._2_developers._2_conditionals.IfStatements).
         //  Call one of its static methods and print the result.
         //  Example: String result = com.amigoscode._2_developers._2_conditionals.IfStatements.evenOrOdd(4);
+
+        IfStatements tmp = new IfStatements();
+        System.out.println("2 is: " + tmp.evenOrOdd(2));
+        System.out.println("3 is: " + tmp.evenOrOdd(2));
 
     }
 
