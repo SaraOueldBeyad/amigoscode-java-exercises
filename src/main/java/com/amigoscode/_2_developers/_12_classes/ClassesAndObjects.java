@@ -14,9 +14,24 @@ public class ClassesAndObjects {
     //  - A private String field 'name'
     //  - A private int field 'age'
 
+//    public static class Person {
+//        private String name;
+//        private int age;
+//    }
+
 
     // TODO: 2 - Add a constructor to Person that takes String name and int age,
     //  and assigns them to the fields.
+
+//    public static class Person {
+//        private String name;
+//        private int age;
+//
+//        public Person(String name, int age) {
+//            this.name = name;
+//            this.age = age;
+//        }
+//    }
 
 
     // TODO: 3 - Add a no-args constructor to Person that sets name to "Unknown"
@@ -24,10 +39,43 @@ public class ClassesAndObjects {
     //  using this("Unknown", 0) instead of setting fields directly.
     //  (See TODO 7 for more on constructor chaining.)
 
+//    public static class Person {
+//        private String name;
+//        private int age;
+//
+//        public Person(){
+//            this("Unknown", 0);
+//        }
+//
+//        public Person(String name, int age) {
+//            this.name = name;
+//            this.age = age;
+//        }
+//    }
+
 
     // TODO: 4 - Add a toString() method to Person that returns:
     //  "Person{name='<name>', age=<age>}"
     //  Annotate with @Override.
+
+//    public static class Person {
+//        private String name;
+//        private int age;
+//
+//        public Person(){
+//            this("Unknown", 0);
+//        }
+//
+//        public Person(String name, int age) {
+//            this.name = name;
+//            this.age = age;
+//        }
+//
+//        @Override
+//        public String toString() {
+//            return String.format("Person{name='%s', age='%d'}", name, age);
+//        }
+//    }
 
 
     // TODO: 5 - Add an equals() method to Person that:
@@ -36,6 +84,36 @@ public class ClassesAndObjects {
     //  - Annotate with @Override
     //  Hint: use instanceof, then cast and compare fields.
     //  Also override hashCode() using Objects.hash(name, age).
+
+    public static class Person {
+        private String name;
+        private int age;
+
+        public Person(){
+            this("Unknown", 0);
+        }
+
+        public Person(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        @Override
+        public String toString() {
+            return String.format("Person{name='%s', age='%d'}", name, age);
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (!(o instanceof Person person)) return false;
+            return age == person.age && Objects.equals(name, person.name);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(name, age);
+        }
+    }
 
 
     public static void main(String[] args) {
@@ -48,6 +126,14 @@ public class ClassesAndObjects {
         //  and person1 with person2 (should be false).
         //  Print the comparison results.
 
+        Person[] people = {new Person("Alice", 30), new Person(), new Person("Alice", 30)};
+
+        for (Person p : people) {
+            p.toString();
+        }
+
+        System.out.println(people[0].equals(people[2]));
+        System.out.println(people[0].equals(people[1]));
 
         // TODO: 7 - Demonstrate constructor chaining with this():
         //  Add a comment explaining what constructor chaining is:
@@ -55,6 +141,8 @@ public class ClassesAndObjects {
         //  it avoids duplicating initialization logic.
         //  The no-args constructor you created in TODO 3 already demonstrates this.
         //  Print: "No-args person: " + the no-args person to show the defaults.
+
+        System.out.println("No-args person: " + people[1]);
 
     }
 }
