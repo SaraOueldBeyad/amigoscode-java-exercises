@@ -61,21 +61,32 @@ public class StackExercises {
         //           that the top of stack is the matching opening bracket
         //           Test with both 'balanced' and 'unbalanced' strings
         //           Print whether each string is balanced or not
-
+        System.out.println(balancedBracketChecker(balanced));
+        System.out.println(balancedBracketChecker(unbalanced));
 
     }
 
     public static boolean balancedBracketChecker(String myString){
         Stack<Character> stack = new Stack<>();
         char[] arr = myString.toCharArray();
+        boolean isBalanced = true;
+        char temp;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == '{' || arr[i] == '[' || arr[i] == '('){
                 stack.push(arr[i]);
             }
             else {
-
+                temp = stack.pop();
+                if ((arr[i] == '}' && temp == '{') ||
+                        (arr[i] == ']' && temp == '[') ||
+                        (arr[i] == ')' && temp == '(')) {
+                    isBalanced = true;
+                } else {
+                    isBalanced = false;
+                    return isBalanced;
+                }
             }
         }
-        return true; // FIXME
+        return isBalanced;
     }
 }
