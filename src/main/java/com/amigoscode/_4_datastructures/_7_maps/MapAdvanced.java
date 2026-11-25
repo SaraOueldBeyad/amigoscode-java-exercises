@@ -33,7 +33,7 @@ public class MapAdvanced {
         // TODO: 3 - Use computeIfAbsent() to add "Eve" with a computed value
         //           The computation: the key's length * 10 (so "Eve" -> 3 * 10 = 30)
         //           Print the map after the operation
-        scores.putIfAbsent("Eve", "Eve".length() * 10);
+        scores.computeIfAbsent("Eve", key -> key.length() * 10);
         scores.entrySet().forEach(System.out::println);
 
         // TODO: 4 - Use merge() to add 5 bonus points to "Charlie"'s score
