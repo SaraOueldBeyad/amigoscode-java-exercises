@@ -83,6 +83,10 @@ public class DataStructureChallenge {
         //           - Number of unique subjects (from the Set)
         //           - Highest grade student (first in sorted list)
         //           - Number of students per subject (from the Map)
-
+        System.out.println("Total number of students: " + list.size());
+        System.out.println("Number of unique subjects: " + uniqueSubjects.size());
+        System.out.println("Highest grade student: " + list.getFirst().name);
+        System.out.println("Number of students per subject: ");
+        studentsBySubject.forEach((subject, listOfStudents) -> System.out.println(subject + ": " + listOfStudents.size()));
     }
 }
